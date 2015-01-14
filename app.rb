@@ -2,6 +2,7 @@ require("sinatra")
 require("sinatra/reloader")
 also_reload("lib/**/*.rb")
 require("./lib/jobs")
+require('pry')
 
 get('/') do
   erb(:index)
@@ -18,3 +19,11 @@ post("/success") do
   @description_four = params.fetch("description_four")
   erb(:success)
 end
+
+# post("/add_form") do
+#   extra_job = params.fetch("extra_job")
+#   extra_description = params.fetch("extra_description")
+#   extra_job = Jobs.new(extra_job, extra_description)
+#   extra_job.save()
+#   erb(:add_form)
+# end
